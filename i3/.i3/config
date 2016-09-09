@@ -37,11 +37,11 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -77,7 +77,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# Wbindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -173,11 +173,16 @@ for_window [ title="qtcreator_process_stub" ] resize shrink width 20 px or 20 pp
 
 bindcode 123 exec --no-startup-id amixer set Master 1%+ && killall -USR1 i3status
 bindcode 122 exec --no-startup-id amixer set Master 1%- && killall -USR1 i3status
-#bindcode 121
+bindcode 121 exec --no-startup-id amixer set Master toggle && killall -USR1 i3status
 bindcode 174 exec --no-startup-id xmms2 stop && sleep 1 && killall -USR1 i3status
 bindcode 172 exec --no-startup-id xmms2 toggle && sleep 1 && killall -USR1 i3status
 #bindcode 164
 #bindcode 225
 #bindcode 163
-#bindcode 180
+bindcode 180 exec firefox
 #bindcode 152
+
+bindsym $mod+s move scratchpad
+bindsym $mod+shift+s scratchpad showW
+bindsym $mod+d exec ~/.i3/rofi.sh
+bindsym $mod+shift+d exec dmenu_run
