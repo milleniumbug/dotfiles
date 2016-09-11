@@ -183,6 +183,6 @@ bindcode 180 exec firefox
 #bindcode 152
 
 bindsym $mod+s move scratchpad
-bindsym $mod+shift+s scratchpad showW
+bindsym $mod+shift+s scratchpad show
 bindsym $mod+d exec ~/.i3/rofi.sh
 bindsym $mod+shift+d exec dmenu_run
