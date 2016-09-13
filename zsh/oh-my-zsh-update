@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ~/.oh-my-zsh
+git reset --hard
+git pull
+rm -rf custom
+ln -s ~/config/zsh/custom custom
