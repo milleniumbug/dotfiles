@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ "$1" = "-title" -a "$3" = "-e" ]; then
+	title="$2"
+	shift 3
+	konsole -p tabtitle="$title" -e "$@"
+	exit
+fi

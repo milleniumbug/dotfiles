@@ -1,3 +1,3 @@
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin:$PATH
 export SSH_ASKPASS=
 
