@@ -31,7 +31,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -130,7 +130,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command runhaskell ~/.i3/mystatus.hs
+	status_command runhaskell ~/config/i3/.i3/mystatus.hs
 #	status_command i3status
 	tray_padding 0
 }
@@ -159,12 +159,12 @@ bindsym $mod+r mode "resize"
 
 # Just add the following lines to your i3 config file
 # dynamic tagging feature
-bindsym $mod+t exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/go_to_workspace.py
-bindsym $mod+Shift+t exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/move_to_workspace.py
+bindsym $mod+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/go_to_workspace.py
+bindsym $mod+Shift+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/move_to_workspace.py
 bindsym $mod+Shift+Return exec gnome-terminal -x 'mc'
 
-bindsym --release $mod+Print exec --no-startup-id ~/.i3/print_screen.sh
-bindsym --release $mod+Shift+Print exec --no-startup-id ~/.i3/print_screen.sh -window root
+bindsym --release $mod+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh
+bindsym --release $mod+Shift+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh -window root
 
 # app specific
 #
@@ -184,5 +184,8 @@ bindcode 180 exec firefox
 
 bindsym $mod+s move scratchpad
 bindsym $mod+shift+s scratchpad show
-bindsym $mod+d exec ~/.i3/rofi.sh
+bindsym $mod+d exec ~/config/i3/.i3/rofi.sh
 bindsym $mod+shift+d exec dmenu_run
+
+
+exec_always --no-startup-id nitrogen --restore
