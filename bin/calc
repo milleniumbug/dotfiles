@@ -1,2 +1,39 @@
 #!/bin/bash
-printf 'scale=8\n%s\n' "$@" | bc
+# https://serverfault.com/questions/72476/clean-way-to-write-complex-multi-line-string-to-a-variable/72511#72511
+IFS='' read -r -d '' preload <<"EOF"
+	pi=3.1415926535897932384626433832795028;
+	e=2.71828182845904523536028747135266249;
+
+	define sin(x) {
+		return s(x * pi / 180);
+	}
+
+	define cos(x) {
+		return c(x * pi / 180);
+	}
+
+	define log10(x) {
+		return l(x)/l(10)
+	}
+
+	define log2(x) {
+		return l(x)/l(2)
+	}
+
+	
+
+EOF
+
+if [ "x$1" = "xh2d" ]; then
+	ibase=16
+	obase=10
+elif [ "x$1" = "xd2h" ]; then
+	ibase=10
+	obase=16
+else
+	ibase=10
+	obase=10
+fi
+shift
+printf '%s\nobase=%s\nibase=%s\n%s\n' "$preload" "$obase" "$ibase" "$@" | bc -l
+
