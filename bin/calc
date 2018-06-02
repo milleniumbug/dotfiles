@@ -27,13 +27,14 @@ EOF
 if [ "x$1" = "xh2d" ]; then
 	ibase=16
 	obase=10
+	shift
 elif [ "x$1" = "xd2h" ]; then
 	ibase=10
 	obase=16
+	shift
 else
 	ibase=10
 	obase=10
 fi
-shift
 printf '%s\nobase=%s\nibase=%s\n%s\n' "$preload" "$obase" "$ibase" "$@" | bc -l
 
