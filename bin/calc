@@ -1,0 +1,2 @@
+#!/bin/bash
+printf 'scale=8\n%s\n' "$@" | bc

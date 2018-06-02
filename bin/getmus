@@ -1,0 +1,8 @@
+#!/bin/bash
+youtube-dl \
+"$1" \
+--quiet \
+--extract-audio \
+--audio-format mp3 \
+--audio-quality 3 \
+--exec 'mp3gain -q -r -c {} > /dev/null && echo {}'

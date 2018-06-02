@@ -150,6 +150,11 @@ mode "resize" {
 	bindsym Up exec --no-startup-id [ `i3-msg resize grow up | grep true | wc -l` = 1 ] || i3-msg resize shrink down
 	bindsym Right exec --no-startup-id [ `i3-msg resize grow right | grep true | wc -l` = 1 ] || i3-msg resize shrink left
 
+	bindsym Shift+Left exec --no-startup-id [ `i3-msg resize shrink left | grep true | wc -l` = 1 ] || i3-msg resize grow right
+	bindsym Shift+Down exec --no-startup-id [ `i3-msg resize shrink down | grep true | wc -l` = 1 ] || i3-msg resize grow up
+	bindsym Shift+Up exec --no-startup-id [ `i3-msg resize shrink up | grep true | wc -l` = 1 ] || i3-msg resize grow down
+	bindsym Shift+Right exec --no-startup-id [ `i3-msg resize shrink right | grep true | wc -l` = 1 ] || i3-msg resize grow left
+
 	bindsym $mod mode "default"
 	bindsym Escape mode "default"
 	bindsym Return mode "default"
