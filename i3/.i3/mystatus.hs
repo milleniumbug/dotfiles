@@ -74,8 +74,9 @@ main = do
 	B8.putStrLn "["
 	o <- B.hGetContents i
 	forM_ (JSPar.parseLazyByteString (JSPar.arrayOf JSPar.value) o :: [[Entry]]) $ \x -> do
-		(_, xmms2res, _, _) <- Pr.runInteractiveProcess "xmms2" ["current"] Nothing Nothing
+		(_, xmms2res, _, pid) <- Pr.runInteractiveProcess "xmms2" ["current"] Nothing Nothing
 		currently_playing <- E.decodeUtf8 <$> B.hGetContents xmms2res
+		_ <- Pr.waitForProcess pid
 		B.putStr $ JS.encode $ (defaultEntry $ T.filter (/= '\n') currently_playing){name = Just "xmms2"} : x
 		B8.putStrLn ","
 		IO.hFlush IO.stdout
