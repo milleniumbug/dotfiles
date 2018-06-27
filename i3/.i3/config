@@ -31,7 +31,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec uxterm
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -166,7 +166,7 @@ bindsym $mod+r mode "resize"
 # dynamic tagging feature
 bindsym $mod+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/go_to_workspace.py
 bindsym $mod+Shift+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/move_to_workspace.py
-bindsym $mod+Shift+Return exec uxterm 'mc'
+bindsym $mod+Shift+Return exec gnome-terminal -x 'mc'
 
 bindsym --release $mod+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh
 bindsym --release $mod+Shift+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh -window root
