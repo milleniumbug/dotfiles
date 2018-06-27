@@ -1,0 +1,8 @@
+#!/bin/bash
+# Run 'ssh-keyscan localhost 2> /dev/null' on the target machine
+# then feed its output to this script
+f=$(mktemp)
+cat > "$f"
+ssh-keygen -lf "$f" -E sha256
+ssh-keygen -lf "$f" -E md5
+
