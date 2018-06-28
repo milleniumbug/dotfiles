@@ -166,7 +166,7 @@ bindsym $mod+r mode "resize"
 # dynamic tagging feature
 bindsym $mod+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/go_to_workspace.py
 bindsym $mod+Shift+t exec ~/config/i3/.i3/get_workspace_options.py | dmenu -b | ~/config/i3/.i3/move_to_workspace.py
-bindsym $mod+Shift+Return exec gnome-terminal 'mc'
+bindsym $mod+Shift+Return exec gnome-terminal -x 'mc'
 
 bindsym --release $mod+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh
 bindsym --release $mod+Shift+Print exec --no-startup-id ~/config/i3/.i3/print_screen.sh -window root
@@ -194,3 +194,6 @@ bindsym $mod+shift+d exec dmenu_run
 
 
 exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id syncthing -no-browser
+exec --no-startup-id i3-msg 'workspace mail; exec thunderbird; workspace mail; exec pidgin; workspace 1'
+exec --no-startup-id i3-msg 'workspace keepass; exec keepass2; workspace 1'
