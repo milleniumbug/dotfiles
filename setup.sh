@@ -7,6 +7,9 @@ set -Eeuxo pipefail
 sudo add-apt-repository -y ppa:dlech/keepass2-plugins
 sudo apt install -y keepass2 xdotool keepass2-plugin-keeagent
 
+# Synchronization and data access
+sudo apt install syncthing sshfs filezilla
+
 # git
 sudo apt install git curl
 OLD=$(pwd)
@@ -32,6 +35,22 @@ sudo cabal install aeson json-stream
 sudo apt install -y gcc g++ gdb build-essential git
 
 # C# env
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
+sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list
+sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
+sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
+sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
+
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-2.1
+
+sudo apt install -y apt-transport-https dirmngr
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu vs-bionic main" | sudo tee /etc/apt/sources.list.d/mono-official-vs.list
+sudo apt update
+sudo apt-get install -y monodevelop
 
 
 # Multimedia
@@ -58,3 +77,13 @@ cd lxmusic-mlem
 make
 sudo make install
 cd "$OLD" && rm -rf /tmp/lxmus
+
+# Internet
+sudo apt install wget curl firefox thunderbird pidgin
+
+# Setup
+mkdir ~/screens
+ln -s ~/config/bin ~/bin
+rm -rf ~/.config/i3
+ln -s ~/config/i3/.i3 ~/.config/i3
+ln -s ~/config/i3/.i3status.conf ~/.i3status.conf

@@ -194,3 +194,6 @@ bindsym $mod+shift+d exec dmenu_run
 
 
 exec_always --no-startup-id nitrogen --restore
+exec --no-startup-id syncthing -no-browser
+exec --no-startup-id i3-msg 'workspace mail; exec thunderbird; workspace mail; exec pidgin; workspace 1'
+exec --no-startup-id i3-msg 'workspace keepass; exec keepass2; workspace 1'
