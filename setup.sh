@@ -8,7 +8,11 @@ sudo add-apt-repository -y ppa:dlech/keepass2-plugins
 sudo apt install -y keepass2 xdotool keepass2-plugin-keeagent
 
 # Synchronization and data access
-sudo apt install syncthing sshfs filezilla
+sudo apt install -y sshfs filezilla
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt-get update
+sudo apt-get install -y syncthing
 
 # git
 sudo apt install git curl
