@@ -91,7 +91,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+s focus child
 
 bindsym $mod+z move scratchpad
 bindsym $mod+x scratchpad show
@@ -187,7 +187,7 @@ bindcode 172 exec --no-startup-id xmms2 toggle && sleep 1 && killall -USR1 i3sta
 bindcode 180 exec firefox
 #bindcode 152
 
-bindsym $mod+s move scratchpad
+#bindsym $mod+s move scratchpad
 bindsym $mod+shift+s scratchpad show
 bindsym $mod+d exec ~/config/i3/.i3/rofi.sh
 bindsym $mod+shift+d exec dmenu_run

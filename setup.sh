@@ -30,6 +30,7 @@ sudo apt install -y wget zsh git
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
+sudo apt install -y dos2unix
 
 # Desktop environment
 sudo apt install -y nitrogen rofi i3 wdm ghc cabal python3

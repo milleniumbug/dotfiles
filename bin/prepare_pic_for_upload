@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$#" -lt 2 ]; then
+	echo "too little parameters"
+	exit
+fi
+if [ ! -f "$1" ]; then
+	echo "not a file"
+	exit
+fi
+cp -- "$1" "$2"
+exiftool -all= "$2"
+mogrify -resize '1024x>' --  "$2"
+

@@ -1,3 +1,5 @@
+-- sudo cabal install aeson bytestring json-stream
+
 {-# LANGUAGE OverloadedStrings #-}
 
 import qualified Data.Aeson as JS
